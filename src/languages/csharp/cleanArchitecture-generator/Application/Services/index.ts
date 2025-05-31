@@ -1,0 +1,1 @@
+export { generate as generateAppServices } from './generate.js';

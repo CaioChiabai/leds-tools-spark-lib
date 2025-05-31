@@ -1,0 +1,1 @@
+export { generate as generateSecurityinterfaces } from './generate.js';

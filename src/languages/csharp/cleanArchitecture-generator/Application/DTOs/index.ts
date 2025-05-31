@@ -1,0 +1,1 @@
+export { generate as generateDto } from './generate.js'

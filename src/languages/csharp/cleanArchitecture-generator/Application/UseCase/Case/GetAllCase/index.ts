@@ -1,0 +1,1 @@
+export { generate as generateGetallcase } from './generate.js';

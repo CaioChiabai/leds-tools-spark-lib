@@ -1,0 +1,1 @@
+export { generate as generateInterfaces } from './generate.js';

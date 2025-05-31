@@ -1,0 +1,1 @@
+export { generate as generateMappers } from './generate.js';

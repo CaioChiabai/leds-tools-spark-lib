@@ -1,0 +1,1 @@
+export { generate as generateChangepassword } from './generator.js';
