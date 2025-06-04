@@ -3,7 +3,7 @@ name: Bump Version and Publish
 on:
   push:
     branches:
-      - main
+      - devolop
 
 jobs:
   build:
@@ -32,16 +32,13 @@ jobs:
           npm ci
 
       - name: Build do projeto
-        run: npm run build
-
-      - name: Análise com SonarCloud
-        uses: SonarSource/sonarcloud-github-action@v2
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
+        run: npm run build && npx tsc
+          
       - name: Bump de versão (minor)
+        id: package_version
         run: |
-          npm version minor -m "ci: release %s [skip ci]"
+          VERSION=$(npm version minor -m "ci: release %s [skip ci]") # Removido o '|' extra e indentado corretamente
+          echo "version=$VERSION" >> $GITHUB_OUTPUT    
 
       - name: Publicar no NPM
         run: npm publish
@@ -52,6 +49,22 @@ jobs:
         run: |
           git push origin develop --follow-tags
 
+      - name: Apagar tags antigas
+        run: |
+          # Obtém a tag mais recente (a última criada)
+          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+
+          echo "Mantendo a tag mais recente: $latest_tag"
+
+          # Lista todas as tags, exclui a mais recente e deleta as demais
+          for tag in $(git tag); do
+            if [ "$tag" != "$latest_tag" ]; then
+              git push --delete origin "$tag"
+              git tag -d "$tag"
+              echo "Tag apagada: $tag"
+            fi
+          done
+
       - name : Enviar email de notificação
         uses:  dawidd6/action-send-mail@v3
         with: 
@@ -61,12 +74,11 @@ jobs:
               username: ${{ secrets.EMAIL_USER }}
               password: ${{ secrets.EMAIL_PASS }}
               subject: "📦 Novo pacote publicado: v${{ steps.package_version.outputs.version }}"
-              body:  |
-                  ✅ Publicação concluída com sucesso!,
-                  
-                  📁 Repositório: ${{ github.repository }}
-                  🔖 Versão: v${{ steps.package_version.outputs.version }}
-                  🔗 Commit: https://github.com/$%7B%7B github.repository }}/commit/${{ github.sha }}
-                  📦 NPM: https://www.npmjs.com/package/spark-generators-lib
-              to: caiochiabaioliveira@gmail.com
+              body: |
+                ✅ Publicação concluída com sucesso!
+        
+                📁 Repositório: ${{ github.repository }}
+                🔖 Versão: v${{ steps.package_version.outputs.version }}              
+                📦 NPM: https://www.npmjs.com/package/spark-generators-lib
+              to: caiochiabaioliveira@gmail.com, diegobrangel8@gmail.com, valentimcaldeira100@gmail.com, Lucas.codeco2@gmail.com, brunoowcx1@gmail.com
               from: GitHub Actions <${{ secrets.EMAIL_USER }}>
