@@ -4,7 +4,6 @@ import { expandToStringWithNL } from "langium/generate";
 
 import { Configuration, Model } from "../../../shared/ast.js";
 
-
 export function generate(model: Model, target_folder: string) : void {
     fs.mkdirSync(target_folder, {recursive: true})
 
@@ -60,7 +59,4 @@ function createProjectReadme(configuration : Configuration) : string{
     ## 🔧 Usage
 
     `
-  
 }
-
-export { createGitLab, stackREADME, createProjectReadme };
