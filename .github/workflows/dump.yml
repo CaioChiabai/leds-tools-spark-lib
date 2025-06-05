@@ -102,8 +102,10 @@ jobs:
               secure: true
               username: ${{ secrets.EMAIL_USER }}
               password: ${{ secrets.EMAIL_PASS }}
-              subject: "📦 Novo pacote publicado: v${{ steps.package_version.outputs.version
-              html_body:  <p>O pacote foi publicado com sucesso no NPM.</p>
+              subject: "📦 Novo pacote publicado: v${{ steps.package_version.outputs.version"
+              
+              html_body:  |
+                <p>O pacote foi publicado com sucesso no NPM.</p>
 
                 <ul>
                   <li><strong>📁 Repositório:</strong> ${{ github.repository }}</li>
