@@ -3,7 +3,7 @@ name: Bump Version and Publish
 on:
   push:
     branches:
-      - devolop
+      - develop
 
 jobs:
   build:
@@ -102,7 +102,9 @@ jobs:
               secure: true
               username: ${{ secrets.EMAIL_USER }}
               password: ${{ secrets.EMAIL_PASS }}
-              subject: "📦 Novo pacote publicado: v${{ steps.package_version.outputs.version"
+
+
+              subject: "📦 Novo pacote publicado: v${{ steps.package_version.outputs.version}} "
               
               html_body:  |
                 <p>O pacote foi publicado com sucesso no NPM.</p>
