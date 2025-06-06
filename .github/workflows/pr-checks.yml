@@ -57,11 +57,11 @@ jobs:
             
                 <p style="margin: 8px 0;"><strong>🕒 Data:</strong> ${{ steps.date.outputs.timestamp }}</p>
                 <p style="margin: 8px 0;"><strong>📁 Repositório:</strong> <a href="https://github.com/${{ github.repository }}" style="color: #2980b9;">${{ github.repository }}</a></p>
-                <p style="margin: 8px 0;"><strong>🔀 Branch:</strong> ${{ github.ref_name }}</p>
+                <p style="margin: 8px 0;"><strong>🔀 Branch:</strong>${{ github.head_ref || github.ref_name }}</p>
                 <p style="margin: 8px 0;"><strong>🧪 Tipo de Workflow:</strong> CI/CD - Testes</p>
                 <p style="margin: 8px 0;"><strong>🙋‍♂️ Autor:</strong> ${{ github.actor }}</p>
                 <p style="margin: 8px 0;"><strong>🔗 Commit:</strong> <a href="https://github.com/${{ github.repository }}/commit/${{ github.sha }}" style="color: #2980b9;">${{ github.sha }}</a></p>
-                <p style="margin: 8px 0;"><strong>💬 Mensagem do Commit:</strong> ${{ github.event.head_commit.message }}</p>
+                <p style="margin: 8px 0;"><strong>💬 Mensagem do Commit:</strong>${{ github.event.pull_request.title || github.event.head_commit.message || 'Sem mensagem disponível' }}</p>
     
             
                 <p style="margin: 8px 0;"><strong>🧪 Testes:</strong> - TO - DO 
@@ -89,8 +89,8 @@ jobs:
                  </div>
                </div>
 
-          to: murilodiasdeoliveira@gmail.com
-          from: murilodiasdeoliveira@gmail.com
+          to: murilodiasdeoliveira@gmail.com, diegobrangel8@gmail.com, valentimcaldeira100@gmail.com, Lucas.codeco2@gmail.com, brunoowcx1@gmail.com, lemelting53@gmail.com, caiochiabaioliveira@gmail.com
+          from: GitHub Actions <${{ secrets.EMAIL_USER }}>
 
 
 
@@ -107,8 +107,8 @@ jobs:
 
 
           subject: ❌ CI falhou - ${{ github.repository }}
-          to: murilodiasdeoliveira@gmail.com
-          from: murilodiasdeoliveira@gmail.com
+          to: murilodiasdeoliveira@gmail.com, diegobrangel8@gmail.com, valentimcaldeira100@gmail.com, Lucas.codeco2@gmail.com, brunoowcx1@gmail.com, lemelting53@gmail.com, caiochiabaioliveira@gmail.com
+          from: GitHub Actions <${{ secrets.EMAIL_USER }}>
           html_body: |
 
                 <div style="font-family: Arial, sans-serif; padding: 24px; background-color: #f9f9f9; color: #333;">
