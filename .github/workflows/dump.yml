@@ -107,29 +107,60 @@ jobs:
               subject: "📦 Novo pacote publicado: v${{ steps.package_version.outputs.version}} "
               
               html_body:  |
-                <p>O pacote foi publicado com sucesso no NPM.</p>
+                
+                <!DOCTYPE html>
+                <html lang="pt-BR">
+                <head>
+                  <meta charset="UTF-8" />
+                  <meta name="viewport" content="width=device-width, initial-scale=1" />
+                  <title>Notificação de Publicação</title>
+                  <style>
+                    body { font-family: Arial, sans-serif; background-color: #f4f6f8; color: #333; margin: 0; padding: 20px; }
+                    .container { background: white; max-width: 600px; margin: auto; padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+                    p { font-size: 16px; margin-bottom: 20px; }
+                    ul { list-style: none; padding: 0; margin-bottom: 30px; }
+                    ul li { margin-bottom: 12px; font-size: 15px; }
+                    ul li strong { color: #222; }
+                    ul li a { color: #1a73e8; text-decoration: none; }
+                    ul li a:hover { text-decoration: underline; }
+                    .button { display: inline-block; background-color: #1a73e8; color: white !important; padding: 12px 25px; border-radius: 5px; font-weight: bold; font-size: 16px; text-decoration: none; margin-bottom: 30px; }
+                    .button:hover { background-color: #155db2; }
+                    .footer { font-size: 13px; color: #777; text-align: center; border-top: 1px solid #eee; padding-top: 15px; }
+                  </style>
+                </head>
+                <body>
+                  <div class="container">
+                    <p>O pacote foi publicado com sucesso no NPM.</p>
+                    <ul>
+                      <li><strong>📁 Repositório:</strong> ${{ github.repository }}</li>
+                      <li><strong>🔖 Versão:</strong> ${{ steps.package_version.outputs.version }}</li>
+                      <li><strong>🕒 Data:</strong> ${{ github.event.head_commit.timestamp }}</li>
+                      <li><strong>👤 Autor:</strong> ${{ github.event.head_commit.author.name }}</li>
+                      <li><strong>🔗 Commit:</strong>
+                        <a href="https://github.com/${{ github.repository }}/commit/${{ github.sha }}" target="_blank" rel="noopener noreferrer">Ver commit</a>
+                      </li>
+                    </ul>
+                    <a class="button" href="https://www.npmjs.com/package/spark-generators-lib" target="_blank" rel="noopener noreferrer">Acessar pacote no NPM</a>
+                    <div class="footer">Enviado automaticamente por GitHub Actions • spark-generators-lib</div>
+                  </div>
+                </body>
+                </html>
 
-                <ul>
-                  <li><strong>📁 Repositório:</strong> ${{ github.repository }}</li>
-                  <li><strong>🔖 Versão:</strong> ${{ steps.package_version.outputs.version }}</li>
-                  <li><strong>🕒 Data:</strong> ${{ github.event.head_commit.timestamp }}</li>
-                  <li><strong>👤 Autor:</strong> ${{ github.event.head_commit.author.name }}</li>
-                  <li><strong>🔗 Commit:</strong>
-                    <a href="https://github.com/${{ github.repository }}/commit/${{ github.sha }}">
-                      Ver commit
-                    </a>
-                  </li>
-                </ul>
 
-                <a class="button" href="https://www.npmjs.com/package/spark-generators-lib" target="_blank">
-                  Acessar pacote no NPM
-                </a>
 
-                <div class="footer">
-                  Enviado automaticamente por GitHub Actions • spark-generators-lib
-                </div>
-                </div>
-              to: caiochiabaioliveira@gmail.com, diegobrangel8@gmail.com, valentimcaldeira100@gmail.com, Lucas.codeco2@gmail.com, brunoowcx1@gmail.com, lemelting53@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+              to: murilodiasdeoliveira@gmail.com, anabeatriiz@hotmail.com 
               from: GitHub Actions <${{ secrets.EMAIL_USER }}>
               
 
