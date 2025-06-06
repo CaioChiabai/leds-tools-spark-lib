@@ -107,44 +107,35 @@ jobs:
               subject: "📦 Novo pacote publicado: v${{ steps.package_version.outputs.version}} "
               
               html_body:  |
-                
+
                 <!DOCTYPE html>
-                <html lang="pt-BR">
-                <head>
+                  <html lang="pt-BR">
+                  <head>
                   <meta charset="UTF-8" />
-                  <meta name="viewport" content="width=device-width, initial-scale=1" />
-                  <title>Notificação de Publicação</title>
-                  <style>
-                    body { font-family: Arial, sans-serif; background-color: #f4f6f8; color: #333; margin: 0; padding: 20px; }
-                    .container { background: white; max-width: 600px; margin: auto; padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-                    p { font-size: 16px; margin-bottom: 20px; }
-                    ul { list-style: none; padding: 0; margin-bottom: 30px; }
-                    ul li { margin-bottom: 12px; font-size: 15px; }
-                    ul li strong { color: #222; }
-                    ul li a { color: #1a73e8; text-decoration: none; }
-                    ul li a:hover { text-decoration: underline; }
-                    .button { display: inline-block; background-color: #1a73e8; color: white !important; padding: 12px 25px; border-radius: 5px; font-weight: bold; font-size: 16px; text-decoration: none; margin-bottom: 30px; }
-                    .button:hover { background-color: #155db2; }
-                    .footer { font-size: 13px; color: #777; text-align: center; border-top: 1px solid #eee; padding-top: 15px; }
-                  </style>
-                </head>
-                <body>
-                  <div class="container">
-                    <p>O pacote foi publicado com sucesso no NPM.</p>
-                    <ul>
-                      <li><strong>📁 Repositório:</strong> ${{ github.repository }}</li>
-                      <li><strong>🔖 Versão:</strong> ${{ steps.package_version.outputs.version }}</li>
-                      <li><strong>🕒 Data:</strong> ${{ github.event.head_commit.timestamp }}</li>
-                      <li><strong>👤 Autor:</strong> ${{ github.event.head_commit.author.name }}</li>
-                      <li><strong>🔗 Commit:</strong>
-                        <a href="https://github.com/${{ github.repository }}/commit/${{ github.sha }}" target="_blank" rel="noopener noreferrer">Ver commit</a>
-                      </li>
-                    </ul>
-                    <a class="button" href="https://www.npmjs.com/package/spark-generators-lib" target="_blank" rel="noopener noreferrer">Acessar pacote no NPM</a>
-                    <div class="footer">Enviado automaticamente por GitHub Actions • spark-generators-lib</div>
+                  </head>
+                  <body>
+                  <div style="font-family: Arial, sans-serif; padding: 24px; background-color: #f9f9f9; color: #333;">
+                  <div style="max-width: 600px; margin: auto; background: #fff; border-radius: 8px; padding: 24px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                  <h1 style="color: #2c3e50; font-size: 24px; margin-bottom: 16px;">📦 Publicação do pacote NPM</h1>  
+
+                      <p style="margin: 8px 0;"><strong>🕒 Data:</strong> ${{ steps.date.outputs.timestamp }}</p>
+                      <p style="margin: 8px 0;"><strong>📁 Repositório:</strong> <a href="https://github.com/${{ github.repository }}" style="color: #2980b9;">${{ github.repository }}</a></p>
+                      <p style="margin: 8px 0;"><strong>🔀 Branch:</strong> ${{ github.ref_name }}</p>
+                      <p style="margin: 8px 0;"><strong>🧪 Tipo de Workflow:</strong> CI/CD - Publicação</p>
+                      <p style="margin: 8px 0;"><strong>🙋‍♂️ Autor:</strong> ${{ github.actor }}</p>
+                      <p style="margin: 8px 0;"><strong>🔗 Commit:</strong> <a href="https://github.com/${{ github.repository }}/commit/${{ github.sha }}" style="color: #2980b9;">${{ github.sha }}</a></p>
+                      <p style="margin: 8px 0;"><strong>💬 Mensagem do Commit:</strong> ${{ github.event.head_commit.message }}</p>
+                      <p style="margin: 8px 0;"><strong>🔖 Versão publicada:</strong> ${{ steps.package_version.outputs.version }}</p>
+                      <p style="margin: 8px 0;"><strong>📦 Link do pacote:</strong> <a href="https://www.npmjs.com/package/spark-generators-lib" style="color: #2980b9;">spark-generators-lib</a></p>
+                      <p style="margin: 8px 0;"><strong>📄 Logs do workflow:</strong> <a href="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" style="color: #2980b9;">Ver logs</a></p>
+
+                      <hr style="margin: 24px 0;" />
+
+                      <p style="font-size: 14px; color: #777;">Enviado automaticamente por GitHub Actions • spark-generators-lib</p>
+                    </div>
                   </div>
                 </body>
-                </html>
+                 </html>
 
 
 
