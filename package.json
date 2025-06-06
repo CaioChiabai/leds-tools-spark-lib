@@ -29,14 +29,8 @@
       "path": "cz-conventional-changelog"
     }
   },
-
-  "version": "1.16.0",
-
-  
-
+  "version": "1.17.0",
   "keywords": [],
   "author": "",
   "license": "ISC"
- 
 }
-
