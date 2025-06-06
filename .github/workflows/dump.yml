@@ -105,7 +105,8 @@ jobs:
 
 
               subject: "📦 Novo pacote publicado: v${{ steps.package_version.outputs.version}} "
-              
+              to: murilodiasdeoliveira@gmail.com, anabeatriiz14@hotmail.com
+              from : murilodiasdeoliveira@gmail.com 
               html_body:  |
 
                 <!DOCTYPE html>
@@ -126,9 +127,23 @@ jobs:
                       <p style="margin: 8px 0;"><strong>🔗 Commit:</strong> <a href="https://github.com/${{ github.repository }}/commit/${{ github.sha }}" style="color: #2980b9;">${{ github.sha }}</a></p>
                       <p style="margin: 8px 0;"><strong>💬 Mensagem do Commit:</strong> ${{ github.event.head_commit.message }}</p>
                       <p style="margin: 8px 0;"><strong>🔖 Versão publicada:</strong> ${{ steps.package_version.outputs.version }}</p>
-                      <p style="margin: 8px 0;"><strong>📦 Link do pacote:</strong> <a href="https://www.npmjs.com/package/spark-generators-lib" style="color: #2980b9;">spark-generators-lib</a></p>
-                      <p style="margin: 8px 0;"><strong>📄 Logs do workflow:</strong> <a href="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" style="color: #2980b9;">Ver logs</a></p>
 
+
+
+                       <div style="text-align: center; margin: 24px 0;">
+                  <a href="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" style="background: #34495e; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">
+                    📄 Ver Logs no GitHub Actions
+                  </a>
+                </div>
+            
+                <div style="text-align: center; margin: 24px 0;">
+                  <a href="https://www.npmjs.com/package/spark-generators-lib" style="background: #e74c3c; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">
+                    📦 Ver no NPM
+                  </a>
+                </div>
+            
+                <hr style="border: none; border-top: 1px solid #eee; margin: 32px 0;" />
+            
                       <hr style="margin: 24px 0;" />
 
                       <p style="font-size: 14px; color: #777;">Enviado automaticamente por GitHub Actions • spark-generators-lib</p>
