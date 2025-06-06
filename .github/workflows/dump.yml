@@ -105,7 +105,7 @@ jobs:
 
 
               subject: "📦 Novo pacote publicado: v${{ steps.package_version.outputs.version}} "
-              to: murilodiasdeoliveira@gmail.com, anabeatriiz14@hotmail.com
+              to: murilodiasdeoliveira@gmail.com, diegobrangel8@gmail.com, valentimcaldeira100@gmail.com, Lucas.codeco2@gmail.com, brunoowcx1@gmail.com, lemelting53@gmail.com, caiochiabaioliveira@gmail.com
               from: GitHub Actions <${{ secrets.EMAIL_USER }}>
 
 
