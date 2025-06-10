@@ -4,14 +4,14 @@ import { expandToStringWithNL } from "langium/generate";
 
 import { Configuration, Model } from "../../../shared/ast.js";
 
-
 export function generate(model: Model, target_folder: string) : void {
+    if (!model || !model.configuration) {
+        return;
+    }
     fs.mkdirSync(target_folder, {recursive: true})
 
-    if(model.configuration){
-        fs.writeFileSync(path.join(target_folder, 'README.md'),createProjectReadme(model.configuration))
-        fs.writeFileSync(path.join(target_folder, '.gitlab-ci.yml'),createGitLab(model))
-    }
+    fs.writeFileSync(path.join(target_folder, 'README.md'), createProjectReadme(model.configuration))
+    fs.writeFileSync(path.join(target_folder, '.gitlab-ci.yml'), createGitLab(model))
 }
 
 function createGitLab(model : Model):string{
@@ -60,7 +60,6 @@ function createProjectReadme(configuration : Configuration) : string{
     ## 🔧 Usage
 
     `
-  
 }
 
 export { createGitLab, stackREADME, createProjectReadme };
