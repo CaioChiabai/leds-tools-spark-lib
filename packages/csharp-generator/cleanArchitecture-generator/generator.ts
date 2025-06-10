@@ -8,13 +8,16 @@ import { generate as generateApplication } from "./Application/generate.js"
 import { generate as generateInfraTest } from "./InfraTest/generate.js"
 
 export function generate(model: Model, target_folder: string) : void {
+    if (!model || !model.configuration || !model.configuration.name) {
+        return;
+    }
 
-    const application_folder = target_folder + `/${model.configuration?.name}.Application`
-    const domain_folder = target_folder + `/${model.configuration?.name}.Domain`
-    const domain_test_folder = target_folder + `/${model.configuration?.name}.Domain.Test`
-    const infra_test_folder = target_folder + `/${model.configuration?.name}.Infrastructure.Test`
-    const webApi_folder = target_folder + `/${model.configuration?.name}.WebAPI`
-    const infrastructure_folder = target_folder + `/${model.configuration?.name}.Infrastructure`
+    const application_folder = target_folder + `/${model.configuration.name}.Application`
+    const domain_folder = target_folder + `/${model.configuration.name}.Domain`
+    const domain_test_folder = target_folder + `/${model.configuration.name}.Domain.Test`
+    const infra_test_folder = target_folder + `/${model.configuration.name}.Infrastructure.Test`
+    const webApi_folder = target_folder + `/${model.configuration.name}.WebAPI`
+    const infrastructure_folder = target_folder + `/${model.configuration.name}.Infrastructure`
 
     fs.mkdirSync(application_folder, {recursive: true})
     fs.mkdirSync(domain_folder, {recursive: true})
@@ -29,5 +32,4 @@ export function generate(model: Model, target_folder: string) : void {
     generateDomain(model, domain_folder);
     generateApplication(model, application_folder);
     generateInfraTest(model, infra_test_folder);
-
 }
