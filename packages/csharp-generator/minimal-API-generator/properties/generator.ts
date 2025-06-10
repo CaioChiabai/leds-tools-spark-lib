@@ -4,8 +4,7 @@ import { Model } from '../../../shared/ast.js'
 import { expandToStringWithNL } from 'langium/generate'
 
 export function generate(model: Model, target_folder: string) {
-    
-    if (model.configuration) {
+    if (model && model.configuration) {
         fs.writeFileSync(path.join(target_folder, 'Properties.json'), createPropertiesJSON())
         fs.writeFileSync(path.join(target_folder, 'launchSettings.json'), createLaunchSettingsJSON())
     }
