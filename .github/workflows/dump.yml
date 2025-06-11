@@ -34,15 +34,11 @@ jobs:
       - name: Build do projeto
         run: npm run build && npx tsc
 
-
-
       - name: Análise com SonarCloud
         uses: SonarSource/sonarcloud-github-action@v2
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-
-          
+       
       - name: Bump de versão (minor)
         id: package_version
         run: |
@@ -74,21 +70,6 @@ jobs:
             fi
           done
 
-      - name: Apagar tags antigas
-        run: |
-          # Obtém a tag mais recente (a última criada)
-          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
-
-          echo "Mantendo a tag mais recente: $latest_tag"
-
-          # Lista todas as tags, exclui a mais recente e deleta as demais
-          for tag in $(git tag); do
-            if [ "$tag" != "$latest_tag" ]; then
-              git push --delete origin "$tag"
-              git tag -d "$tag"
-              echo "Tag apagada: $tag"
-            fi
-          done
       - name: Definir timestamp
         id: date
         run: echo "timestamp=$(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> "$GITHUB_OUTPUT"
