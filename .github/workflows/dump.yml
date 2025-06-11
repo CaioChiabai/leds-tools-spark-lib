@@ -52,7 +52,7 @@ jobs:
 
       - name: Push tag e versionamento para o GitHub
         run: |
-          git push origin develop --follow-tags
+          git push origin main --follow-tags
 
       - name: Apagar tags antigas
         run: |
