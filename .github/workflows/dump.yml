@@ -3,7 +3,7 @@ name: Bump Version and Publish
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   build:
@@ -32,7 +32,7 @@ jobs:
           npm ci
 
       - name: Build do projeto
-        run: npm run build && npx tsc
+        run: npx tsc
 
       - name: Análise com SonarCloud
         uses: SonarSource/sonarcloud-github-action@v2
