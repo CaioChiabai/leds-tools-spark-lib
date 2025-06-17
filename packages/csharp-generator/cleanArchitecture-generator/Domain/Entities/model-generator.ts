@@ -1,7 +1,7 @@
 import { CompositeGeneratorNode, Generated, expandToString, expandToStringWithNL, toString } from "langium/generate"
-import { Attribute, Entity, EnumEntityAtribute, ImportedEntity, LocalEntity, ModuleImport, isLocalEntity, getRef } from "../../../../models/ast.js"
-import { RelationInfo } from "../../../../models/relations.js"
-import { capitalizeString } from "../../../../models/generator-utils.js"
+import { Attribute, Entity, EnumEntityAtribute, ImportedEntity, LocalEntity, ModuleImport, isLocalEntity, getRef } from "../../../../models/model.js"
+import { RelationInfo } from "../../../../models/model.js"
+import { capitalizeString } from "../../../../models/model.js"
 
 export function generateModel(cls: LocalEntity, is_supertype: boolean, relations: RelationInfo[], package_name: string, importedEntities: Map<ImportedEntity, ModuleImport | undefined>) : Generated {
   const supertype = getRef(cls.superType)

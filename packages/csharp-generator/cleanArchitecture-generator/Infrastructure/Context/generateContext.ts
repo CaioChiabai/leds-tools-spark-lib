@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { Model, Module, isLocalEntity, isModule } from "../../../../models/ast.js";
+import { Model, Module, isLocalEntity, isModule } from "../../../../models/model.js";
 import { Generated, expandToStringWithNL, toString } from "langium/generate";
 
 export function generateContext(model: Model, target_folder: string) : void {

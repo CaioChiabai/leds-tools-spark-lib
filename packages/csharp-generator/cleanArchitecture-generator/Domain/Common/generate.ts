@@ -1,7 +1,7 @@
 import path from "path"
-import { Model } from "../../../../models/ast.js"
+import { Model } from "../../../../models/model.js"
 import fs from "fs"
-import { expandToStringWithNL } from "../../../../models/generator-utils.js"
+import { expandToStringWithNL } from "../../../../models/model.js"
 
 export function generate(model: Model, target_folder: string) : void {
 

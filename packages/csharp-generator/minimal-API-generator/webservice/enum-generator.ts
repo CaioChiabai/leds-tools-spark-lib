@@ -1,5 +1,5 @@
 import { expandToString } from "langium/generate";
-import { EnumX } from "../../../models/ast.js";
+import { EnumX } from "../../../models/model.js";
 
 export function generateEnum(enumx: EnumX, package_name: string) : string {
   

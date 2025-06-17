@@ -1,8 +1,8 @@
 import path from "path";
 import fs from "fs";
-import { LocalEntity, Model, Module, isLocalEntity, isModule,  } from "../../../models/ast.js";
+import { LocalEntity, Model, Module, isLocalEntity, isModule,  } from "../../../models/model.js";
 import { expandToStringWithNL } from "langium/generate";
-import { capitalizeString } from "../../../models/generator-utils.js";
+import { capitalizeString } from "../../../models/model.js";
 
 export function generate(model: Model, target_folder: string) : void{7
     console.log(model.configuration?.feature)

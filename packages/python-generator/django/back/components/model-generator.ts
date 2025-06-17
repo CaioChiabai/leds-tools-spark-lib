@@ -1,5 +1,5 @@
-import { Attribute, EnumEntityAtribute, EnumX, LocalEntity, Module, Relation, isEnumX, isImportedEntity, isLocalEntity, isManyToMany, isModule, isModuleImport, getRef } from "../../../../models/ast.js"
-import { base_ident, capitalizeString, topologicalSort } from "../../../../models/generator-utils.js"
+import { Attribute, EnumEntityAtribute, EnumX, LocalEntity, Module, Relation, isEnumX, isImportedEntity, isLocalEntity, isManyToMany, isModule, isModuleImport, getRef } from "../../../../models/model.js"
+import { base_ident, capitalizeString, topologicalSort } from "../../../../models/model.js"
 const ident = base_ident
 
 export function generateModels(m: Module) : string {

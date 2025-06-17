@@ -1,9 +1,9 @@
 import { Generated, expandToString } from "langium/generate";
-import { Attribute, EnumEntityAtribute, LocalEntity, Model, getRef } from "../../../../../../models/ast.js"
+import { Attribute, EnumEntityAtribute, LocalEntity, Model, getRef } from "../../../../../../models/model.js"
 import fs from "fs"
 import path from "path";
-import { capitalizeString } from "../../../../../../models/generator-utils.js";
-import { RelationInfo } from "../../../../../../models/relations.js";
+import { capitalizeString } from "../../../../../../models/model.js";
+import { RelationInfo } from "../../../../../../models/model.js";
 
 export function generate(model: Model, target_folder: string, cls: LocalEntity, relations: RelationInfo[]) : void {
     fs.writeFileSync(path.join(target_folder,`Create${cls.name}Handler.cs`), generateHandler(model, cls))

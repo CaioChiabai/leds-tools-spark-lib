@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
-import { Attribute, Configuration, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../models/ast.js";
-import { capitalizeString, createPath } from "../../models/generator-utils.js";
+import { Attribute, Configuration, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../models/model.js";
+import { capitalizeString, createPath } from "../../models/model.js";
 import { Generated, expandToString, expandToStringWithNL, toString } from "langium/generate";
 
 

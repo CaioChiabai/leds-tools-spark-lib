@@ -1,8 +1,8 @@
 import { expandToString, Generated } from "langium/generate"
-import { Attribute, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../../../models/ast.js"
+import { Attribute, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../../../models/model.js"
 import fs from "fs"
 import path from "path"
-import { processRelations, RelationInfo } from "../../../../models/relations.js"
+import { processRelations, RelationInfo } from "../../../../models/model.js"
 
 export function generate(model: Model, target_folder: string) : void {
 

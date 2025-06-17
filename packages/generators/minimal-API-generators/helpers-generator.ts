@@ -1,9 +1,9 @@
-import { Model } from "../../models/ast.js";
+import { Model } from "../../models/model.js";
 import fs from "fs";
 import path from "path";
 import { generate as generateProperties} from "../../csharp-generator/minimal-API-generator/properties/generator.js";
 import { expandToStringWithNL } from "langium/generate";
-import { capitalizeString } from "../../models/generator-utils.js";
+import { capitalizeString } from "../../models/model.js";
 
 export function generate(model: Model, target_folder: string) : void {
 

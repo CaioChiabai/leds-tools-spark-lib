@@ -1,9 +1,9 @@
 import { CompositeGeneratorNode, Generated, expandToString, expandToStringWithNL } from "langium/generate"
-import { Attribute, EnumEntityAtribute, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../../../models/ast.js"
+import { Attribute, EnumEntityAtribute, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../../../models/model.js"
 import fs from "fs"
 import path from "path"
-import { capitalizeString } from "../../../../models/generator-utils.js"
-import { RelationInfo, processRelations } from "../../../../models/relations.js"
+import { capitalizeString } from "../../../../models/model.js"
+import { RelationInfo, processRelations } from "../../../../models/model.js"
 export function generate(model: Model, target_folder: string) : void {
 
   const common_folder = target_folder + '/Common'
