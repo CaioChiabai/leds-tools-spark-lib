@@ -1,5 +1,4 @@
-import { Generated, expandToString } from "langium/generate";
-import { Attribute, EnumEntityAtribute, LocalEntity, Model, getRef } from "../../../../../../models/model.js"
+import { Generated, expandToString, Attribute, EnumEntityAtribute, LocalEntity, Model, getRef } from "../../../../../../models/model.js";
 import fs from "fs"
 import path from "path";
 import { capitalizeString } from "../../../../../../models/model.js";

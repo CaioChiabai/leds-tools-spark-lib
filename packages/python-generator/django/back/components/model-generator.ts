@@ -1,5 +1,4 @@
-import { Attribute, EnumEntityAtribute, EnumX, LocalEntity, Module, Relation, isEnumX, isImportedEntity, isLocalEntity, isManyToMany, isModule, isModuleImport, getRef } from "../../../../models/model.js"
-import { base_ident, capitalizeString, topologicalSort } from "../../../../models/model.js"
+import { Attribute, EnumEntityAtribute, EnumX, LocalEntity, Module, Relation, isEnumX, isImportedEntity, isLocalEntity, isManyToMany, isModule, isModuleImport, getRef, base_ident, capitalizeString, topologicalSort } from "../../../../models/model.js";
 const ident = base_ident
 
 export function generateModels(m: Module) : string {
@@ -173,7 +172,7 @@ function generateAttribute(a: Attribute) : string {
         case 'celular':
             return `${a.name} = models.CharField(${fullname}max_length=11, null=True, blank=True)`
         case 'user':
-            return `${a.name} = models.ForeignKey(settings.AUTH_USER_MODEL, blank=False, null=False, on_delete=models.CASCADE, related_name="user_application_%(class)s")`
+            return `${a.name} = models.ForeignKey(settings.AUTH_USER_MODEL, blank=false, null=false, on_delete=models.CASCADE, related_name="user_application_%(class)s")`
         case 'datetime':
             return `${a.name} = models.DateTimeField(${fullname}blank=True)`
         case 'url':

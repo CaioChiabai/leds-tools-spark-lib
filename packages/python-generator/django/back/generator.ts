@@ -12,4 +12,3 @@ export function generate(model: Model, target_folder: string) : void {
     generateBDD(model,target_folder)
 
 }
-  

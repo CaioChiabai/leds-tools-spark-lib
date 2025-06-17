@@ -1,9 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import { createPath } from '../../models/model.js'
-import { Attribute, LocalEntity, getRef, isLocalEntity } from "../../models/model.js"
-import { Model, isModule } from '../../models/model.js'
-import { Generated, expandToStringWithNL, toString } from 'langium/generate'
+import { createPath, Attribute, LocalEntity, getRef, isLocalEntity, Model, isModule, Generated, expandToStringWithNL, toString } from '../../models/model.js';
 //Relation
 
 

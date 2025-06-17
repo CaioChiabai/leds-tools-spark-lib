@@ -1,7 +1,6 @@
-import path from "path"
-import { Model, isLocalEntity, isModule } from "../../../models/model.js"
-import fs from "fs"
-import { expandToStringWithNL } from "langium/generate"
+import path from "path";
+import { Model, isLocalEntity, isModule, expandToStringWithNL } from "../../../models/model.js";
+import fs from "fs";
 
 export function generate(model: Model, target_folder: string) : void {
 

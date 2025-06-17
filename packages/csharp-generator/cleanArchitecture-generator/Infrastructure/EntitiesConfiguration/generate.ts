@@ -1,8 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { Attribute, LocalEntity, Model, Module, isLocalEntity, isModule, getRef } from "../../../../models/model.js";
-import { RelationInfo, processRelations } from "../../../../models/model.js";
-import { CompositeGeneratorNode, Generated, expandToStringWithNL } from "langium/generate";
+import { Attribute, LocalEntity, Model, Module, isLocalEntity, isModule, getRef, CompositeGeneratorNode, Generated, expandToStringWithNL, RelationInfo, processRelations } from "../../../../models/model.js";
 
 export function generate(model: Model, target_folder: string) : void {
 
@@ -69,9 +67,8 @@ function generateRelations(cls : LocalEntity, relation_maps: Map<LocalEntity, Re
     for(const rel of relations) {
       node.append(generateRelation(cls, rel))
       node.appendNewLine()
-        
     }
-    return node
+    return node.toString()
 }
 
 function generateRelation(cls: LocalEntity, {tgt, card, owner}: RelationInfo) : Generated {

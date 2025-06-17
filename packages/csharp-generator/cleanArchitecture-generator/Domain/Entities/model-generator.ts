@@ -1,7 +1,4 @@
-import { CompositeGeneratorNode, Generated, expandToString, expandToStringWithNL, toString } from "langium/generate"
-import { Attribute, Entity, EnumEntityAtribute, ImportedEntity, LocalEntity, ModuleImport, isLocalEntity, getRef } from "../../../../models/model.js"
-import { RelationInfo } from "../../../../models/model.js"
-import { capitalizeString } from "../../../../models/model.js"
+import { CompositeGeneratorNode, Generated, expandToString, expandToStringWithNL, toString, Attribute, Entity, EnumEntityAtribute, ImportedEntity, LocalEntity, ModuleImport, isLocalEntity, getRef, RelationInfo, capitalizeString } from "../../../../models/model.js";
 
 export function generateModel(cls: LocalEntity, is_supertype: boolean, relations: RelationInfo[], package_name: string, importedEntities: Map<ImportedEntity, ModuleImport | undefined>) : Generated {
   const supertype = getRef(cls.superType)
@@ -156,7 +153,7 @@ function generateRelations(cls: LocalEntity, relations: RelationInfo[]) : Genera
     node.append(generateRelation(cls, rel))
     node.appendNewLine()
   }
-  return node
+  return toString(node)
 }
 
 function generateRelation(cls: LocalEntity, {tgt, card, owner}: RelationInfo) : Generated {
@@ -370,7 +367,7 @@ function generateSetRelations(cls: LocalEntity, relations: RelationInfo[]) : Gen
     node.append(generateSetRelation(cls, rel))
     node.appendNewLine()
   }
-  return node
+  return toString(node)
 }
 
 function generateSetRelation(cls: LocalEntity, {tgt, card, owner}: RelationInfo) : Generated {

@@ -1,15 +1,13 @@
-import { expandToStringWithNL } from "langium/generate"
-import { Model } from "../../../../../../models/model.js"
-import fs from "fs"
-import path from "path"
+import { expandToStringWithNL, Model } from "../../../../../../models/model.js";
+import fs from "fs";
+import path from "path";
 
-export function generate(model: Model, target_folder: string) : void {
-    
-    fs.writeFileSync(path.join(target_folder,`User.cs`), generateUser(model))
-    fs.writeFileSync(path.join(target_folder,`Role.cs`), generateRole(model))
+export function generate(model: Model, target_folder: string): void {
+    fs.writeFileSync(path.join(target_folder, `User.cs`), generateUser(model));
+    fs.writeFileSync(path.join(target_folder, `Role.cs`), generateRole(model));
 }
 
-function generateUser (model: Model): string {
+function generateUser(model: Model): string {
     return expandToStringWithNL`
 using ${model.configuration?.name}.Domain.Security.Account.ValueObjects;
 using ${model.configuration?.name}.Domain.Security.Shared.Entities;
@@ -67,10 +65,10 @@ namespace ${model.configuration?.name}.Domain.Security.Account.Entities
             Roles.Add(role);
         }
     }
-}`
+}`;
 }
 
-function generateRole (model: Model): string {
+function generateRole(model: Model): string {
     return expandToStringWithNL`
 using ${model.configuration?.name}.Domain.Security.Shared.Entities;
 
@@ -86,5 +84,5 @@ namespace ${model.configuration?.name}.Domain.Security.Account.Entities
             Name = name;
         }
     }
-}`
+}`;
 }

@@ -1,5 +1,4 @@
-import { expandToStringWithNL } from "langium/generate"
-import { LocalEntity, Model, isLocalEntity, isModule } from "../../../../models/model.js"
+import { expandToStringWithNL, LocalEntity, Model, isLocalEntity, isModule  } from "../../../../models/model.js"
 import fs from "fs"
 import path from "path";
 import { generate as GenerateSecurity} from "./Security/generate.js"

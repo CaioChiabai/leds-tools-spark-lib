@@ -1,5 +1,4 @@
-import { LocalEntity, Module, isLocalEntity } from "../../../../models/model.js"
-import { base_ident } from "../../../../models/model.js"
+import { LocalEntity, Module, isLocalEntity, base_ident } from "../../../../models/model.js";
 
 const ident = base_ident
 

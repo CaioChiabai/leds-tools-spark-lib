@@ -1,5 +1,4 @@
-import { expandToString } from "langium/generate";
-import { Attribute, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../../../models/model.js"
+import { expandToString, Attribute, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../../../models/model.js";
 import fs from "fs"
 import path from "path";
 import { RelationInfo, processRelations } from "../../../../models/model.js";

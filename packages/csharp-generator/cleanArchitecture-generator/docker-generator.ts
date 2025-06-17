@@ -1,7 +1,6 @@
-import { Model } from "../../models/model.js";
+import { expandToStringWithNL, Model } from "../../models/model.js"
 import fs from "fs";
 import path from "path";
-import { expandToStringWithNL } from "langium/generate";
 
 export function generate(model: Model, target_folder: string) : void { 
     generateDockerCompose(model, target_folder);

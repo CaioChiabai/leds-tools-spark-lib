@@ -1,9 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { Attribute, ImportedEntity, LocalEntity, Model, Module, ModuleImport, isEnumX, isLocalEntity, isModule, isModuleImport, getRef } from "../../models/model.js";
-import { createPath } from "../../models/model.js";
-import { RelationInfo, processRelations } from "../../models/model.js";
-import { Generated, expandToStringWithNL, toString } from "langium/generate";
+import { Attribute, ImportedEntity, LocalEntity, Model, Module, ModuleImport, isEnumX, isLocalEntity, isModule, isModuleImport, getRef, createPath, RelationInfo, processRelations, expandToStringWithNL, Generated, toString } from "../../models/model.js";
 import { generateModel } from "./model-generator.js";
 import { generateEnum } from "./enum-generator.js";
 

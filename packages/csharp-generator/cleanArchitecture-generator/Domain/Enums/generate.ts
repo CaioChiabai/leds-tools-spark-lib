@@ -1,5 +1,4 @@
-import { expandToString } from "langium/generate";
-import { EnumX, Model, isEnumX, isModule } from "../../../../models/model.js";
+import { expandToString, EnumX, Model, isEnumX, isModule } from "../../../../models/model.js";
 import path from "path";
 import fs from "fs";
 import { capitalizeString } from "../../../../models/model.js";

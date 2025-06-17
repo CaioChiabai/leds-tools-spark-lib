@@ -1,12 +1,10 @@
-import { expandToString } from "langium/generate"
-import { Model } from "../../../../../../models/model.js"
-import fs from "fs"
-import path from "path"
+import { expandToString } from "../../../../../../models/model.js";
+import { Model } from "../../../../../../models/model.js";
+import fs from "fs";
+import path from "path";
 
-export function generate(model: Model, target_folder: string) : void {
-
-    fs.writeFileSync(path.join(target_folder, "Response.cs"),generateResponse(model))
-
+export function generate(model: Model, target_folder: string): void {
+    fs.writeFileSync(path.join(target_folder, "Response.cs"), generateResponse(model));
 }
 
 function generateResponse(model: Model): string {
@@ -22,5 +20,5 @@ namespace ${model.configuration?.name}.Application.Shared.UseCases
         public bool IsSuccess => Status is >= 200 and <= 299;
         public IEnumerable<Notification>? Notifications { get; set; }
     }
-}`
+}`;
 }
