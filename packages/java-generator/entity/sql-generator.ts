@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
-import { createPath } from '../../models/generator-utils.js';
-import { Attribute, LocalEntity, Model, isLocalEntity, isModule } from '../../models/ast.js';
+import { createPath } from '../../models/model.js';
+import { Attribute, LocalEntity, Model, isLocalEntity, isModule } from '../../models/model.js';
 import { Generated, expandToString, expandToStringWithNL, toString } from 'langium/generate';
 
 export function generateSchemaSQLHelper(model: Model, target_folder: string) {

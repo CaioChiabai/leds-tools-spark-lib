@@ -1,4 +1,4 @@
-import { expandToString } from "langium/generate";
+import { expandToString } from "../../../models/model.js";
 import fs from "fs";
 import path from "path";
 

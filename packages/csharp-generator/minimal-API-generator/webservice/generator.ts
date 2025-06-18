@@ -1,4 +1,4 @@
-import { Configuration, Model } from "../../../models/ast.js";
+import { Configuration, Model } from "../../../models/model.js";
 import fs from "fs";
 
 import { generateModules } from "./module-generator.js"

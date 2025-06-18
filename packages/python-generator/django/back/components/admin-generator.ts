@@ -1,5 +1,4 @@
-import { LocalEntity, Module, isLocalEntity } from "../../../../models/ast.js"
-import { ident_size } from "../../../../models/generator-utils.js"
+import { LocalEntity, Module, isLocalEntity, ident_size } from "../../../../models/model.js";
 
 const ident = ident_size
 

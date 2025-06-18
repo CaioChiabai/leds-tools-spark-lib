@@ -1,8 +1,7 @@
-import { Model } from "../models/ast.js"
+import { Model, createPath } from "../models/model.js"
 import fs from "fs";
 
 import {django} from "./index.js"
-import { createPath } from "../models/generator-utils.js";
 
 export function generate(model: Model, target_folder: string) : void {
 

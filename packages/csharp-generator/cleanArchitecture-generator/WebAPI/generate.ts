@@ -1,4 +1,4 @@
-import { Model } from "../../../models/ast.js"
+import { Model } from "../../../models/model.js"
 import { generate as projectGenerator} from "./project-generator.js"
 import { generate as helperGenerator } from "./helpers-generator.js"
 import { generate as programGenerator } from "./program-generator.js"

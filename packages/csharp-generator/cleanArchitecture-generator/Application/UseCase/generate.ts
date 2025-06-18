@@ -1,8 +1,7 @@
-import { expandToString } from "langium/generate";
-import { Attribute, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../../../models/ast.js"
+import { expandToString, Attribute, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../../../models/model.js";
 import fs from "fs"
 import path from "path";
-import { RelationInfo, processRelations } from "../../../../models/relations.js";
+import { RelationInfo, processRelations } from "../../../../models/model.js";
 import { generate as generateCreate } from "./Case/CreateCase/generate.js"
 import { generate as generateDelete } from "./Case/DeleteCase/generate.js"
 import { generate as generateUpdate } from "./Case/UpdateCase/generate.js"

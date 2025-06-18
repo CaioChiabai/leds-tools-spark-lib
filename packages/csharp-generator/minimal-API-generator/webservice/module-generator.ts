@@ -1,9 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { Attribute, LocalEntity, Module, Model, ImportedEntity, ModuleImport, isEnumX, isLocalEntity, isModule, isModuleImport, getRef } from "../../../models/ast.js";
-import { capitalizeString, createPath } from "../../../models/generator-utils.js";
-import { RelationInfo, processRelations } from "../../../models/relations.js";
-import { CompositeGeneratorNode, Generated, expandToStringWithNL, toString } from "langium/generate";
+import { Attribute, LocalEntity, Module, Model, ImportedEntity, ModuleImport, isEnumX, isLocalEntity, isModule, isModuleImport, getRef, capitalizeString, createPath, RelationInfo, processRelations, CompositeGeneratorNode, Generated, expandToStringWithNL, toString } from "../../../models/model.js";
 import { generateIdentityUser, generateModel } from "./model-generator.js";
 import { generateEnum } from "./enum-generator.js";
 
@@ -135,7 +132,7 @@ function generateDbRelations(entities: LocalEntity[], relation_maps: Map<LocalEn
     }
   }
   node.append('base.OnModelCreating(modelBuilder);');
-  return node;
+  return toString(node);
 }
 
 function generateDbContextUsing(modules: Module[]): string {

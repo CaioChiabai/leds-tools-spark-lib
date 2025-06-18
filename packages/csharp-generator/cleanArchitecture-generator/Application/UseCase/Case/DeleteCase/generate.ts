@@ -1,8 +1,7 @@
-import { expandToString } from "langium/generate";
-import { LocalEntity, Model } from "../../../../../../models/ast.js"
+import { expandToString, LocalEntity, Model } from "../../../../../../models/model.js"
 import fs from "fs"
 import path from "path";
-import { RelationInfo } from "../../../../../../models/relations.js";
+import { RelationInfo } from "../../../../../../models/model.js";
 
 export function generate(model: Model, target_folder: string, cls: LocalEntity, relations: RelationInfo[]) : void {
     fs.writeFileSync(path.join(target_folder,`Delete${cls.name}Handler.cs`), generateHandler(model, cls))

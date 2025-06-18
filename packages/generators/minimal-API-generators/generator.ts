@@ -1,9 +1,7 @@
-import { Model } from "../../models/ast.js"
+import { Model } from "../../models/model.js";
 import fs from "fs";
 import { generate as generateHelpers } from "./helpers-generator.js";
-
 import { generate as generateDocumentation } from "../../csharp-generator/minimal-API-generator/documentation/generator.js";
-
 import { generate as generateWebservice } from "../../csharp-generator/minimal-API-generator/webservice/generator.js";
 
 export function generate(model: Model, target_folder: string) : void {

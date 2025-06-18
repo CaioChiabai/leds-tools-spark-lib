@@ -1,7 +1,4 @@
-import { CompositeGeneratorNode, Generated, expandToString, expandToStringWithNL, toString } from "langium/generate"
-import { Attribute, EnumEntityAtribute, LocalEntity, Entity, ImportedEntity, ModuleImport, isLocalEntity, getRef } from "../../../models/ast.js"
-import { RelationInfo } from "../../../models/relations.js"
-import { capitalizeString } from "../../../models/generator-utils.js"
+import { CompositeGeneratorNode, Generated, expandToString, expandToStringWithNL, toString, Attribute, EnumEntityAtribute, LocalEntity, Entity, ImportedEntity, ModuleImport, isLocalEntity, getRef, RelationInfo, capitalizeString } from "../../../models/model.js";
 
 export function generateModel(
   cls: LocalEntity,
@@ -142,13 +139,13 @@ function generateTypeAttribute(attribute: Attribute): Generated {
   return attribute.type
 }
 
-function generateRelations(cls: LocalEntity, relations: RelationInfo[]): Generated {
+function generateRelations(cls: LocalEntity, relations: RelationInfo[]): string {
   const node = new CompositeGeneratorNode()
   for (const rel of relations) {
     node.append(generateRelation(cls, rel))
     node.appendNewLine()
   }
-  return node
+  return toString(node)
 }
 
 function generateRelation(cls: LocalEntity, { tgt, card, owner }: RelationInfo): Generated {
