@@ -1,26 +1,24 @@
-import { expandToString } from "langium/generate"
-import { Model, isLocalEntity, isModule } from "../../../../models/ast.js"
-import fs from "fs"
-import path from "path"
+import { expandToString, Model, isLocalEntity, isModule } from "../../../../models/model.js"
+import fs from "fs";
+import path from "path";
 
-export function generate(model: Model, target_folder: string) : void {
-
-    fs.writeFileSync(path.join(target_folder,"ServiceExtensions.cs"), generateServiceExtensions(model))
+export function generate(model: Model, target_folder: string): void {
+    fs.writeFileSync(path.join(target_folder, "ServiceExtensions.cs"), generateServiceExtensions(model));
 }
 
-function generateAdd(model: Model) : string {
-    const modules =  model.abstractElements.filter(isModule);
-    let adds = ""
-    for(const mod of modules) {
-        const mod_classes = mod.elements.filter(isLocalEntity)
-        for(const cls of mod_classes) {
-            adds += `services.AddScoped<I${cls.name}Service, ${cls.name}Service>();\n`
+function generateAdd(model: Model): string {
+    const modules = model.abstractElements.filter(isModule);
+    let adds = "";
+    for (const mod of modules) {
+        const mod_classes = mod.elements.filter(isLocalEntity);
+        for (const cls of mod_classes) {
+            adds += `services.AddScoped<I${cls.name}Service, ${cls.name}Service>();\n`;
         }
     }
-    return adds
+    return adds;
 }
 
-function generateServiceExtensions(model: Model) : string {
+function generateServiceExtensions(model: Model): string {
     return expandToString`
 using FluentValidation;
 using MediatR;
@@ -47,5 +45,5 @@ namespace ${model.configuration?.name}.Application.Services
             ${generateAdd(model)}
         }
     }
-}`
+}`;
 }

@@ -1,8 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { Attribute, ImportedEntity, LocalEntity, Model, Module, ModuleImport, isLocalEntity, isModule, isModuleImport, getRef } from "../../../../models/ast.js";
-import { RelationInfo, processRelations } from "../../../../models/relations.js";
-import { toString } from "langium/generate";
+import { Attribute, ImportedEntity, LocalEntity, Model, Module, ModuleImport, isLocalEntity, isModule, isModuleImport, getRef, toString, RelationInfo, processRelations } from "../../../../models/model.js";
 import { generateModel } from "./model-generator.js";
 
 export function generate(model: Model, target_folder: string) : void {

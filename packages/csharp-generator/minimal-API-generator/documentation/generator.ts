@@ -1,8 +1,6 @@
+import { expandToStringWithNL, Configuration, Model } from "../../../models/model.js";
 import fs from "fs";
 import path from "path";
-import { expandToStringWithNL } from "langium/generate";
-
-import { Configuration, Model } from "../../../models/ast.js";
 
 export function generate(model: Model, target_folder: string) : void {
     if (!model || !model.configuration) {

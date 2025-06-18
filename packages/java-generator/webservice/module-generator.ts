@@ -1,8 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { Attribute, Configuration, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../models/ast.js";
-import { capitalizeString, createPath } from "../../models/generator-utils.js";
-import { Generated, expandToString, expandToStringWithNL, toString } from "langium/generate";
+import { Attribute, Configuration, LocalEntity, Model, isLocalEntity, isModule, getRef, Generated, expandToString, expandToStringWithNL, toString, capitalizeString, createPath } from "../../models/model.js";
 
 
 export function generateModules(model: Model, target_folder: string) : void {

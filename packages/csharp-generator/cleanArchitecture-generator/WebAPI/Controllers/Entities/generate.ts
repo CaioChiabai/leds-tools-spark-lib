@@ -1,5 +1,4 @@
-import { expandToString } from "langium/generate"
-import { LocalEntity, Model } from "../../../../../models/ast.js"
+import { expandToString, LocalEntity, Model } from "../../../../../models/model.js";
 
 export function generate(model: Model, cls: LocalEntity): string {
     return expandToString`

@@ -1,9 +1,8 @@
-import { CompositeGeneratorNode, Generated, expandToString, expandToStringWithNL } from "langium/generate"
-import { Attribute, EnumEntityAtribute, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../../../models/ast.js"
+import { expandToString, expandToStringWithNL, CompositeGeneratorNode, Generated, Attribute, EnumEntityAtribute, LocalEntity, Model, isLocalEntity, isModule, getRef } from "../../../../models/model.js";
 import fs from "fs"
 import path from "path"
-import { capitalizeString } from "../../../../models/generator-utils.js"
-import { RelationInfo, processRelations } from "../../../../models/relations.js"
+import { capitalizeString } from "../../../../models/model.js"
+import { RelationInfo, processRelations } from "../../../../models/model.js"
 export function generate(model: Model, target_folder: string) : void {
 
   const common_folder = target_folder + '/Common'
@@ -128,7 +127,7 @@ function generateRelationsResponse(cls: LocalEntity, relations: RelationInfo[]) 
       node.append(generateRelation(cls, rel))
       node.appendNewLine()
     }
-    return node
+    return node.toString()
   }
   
   function generateRelation(cls: LocalEntity, {tgt, card, owner}: RelationInfo) : Generated {
@@ -207,7 +206,7 @@ function getAttrsAndRelations(cls: LocalEntity, relation_map: Map<LocalEntity, R
       node.append(generateRelationRequest(cls, rel))
       node.appendNewLine()
     }
-    return node
+    return node.toString()
   }
   
   function generateRelationRequest(cls: LocalEntity, {tgt, card, owner}: RelationInfo) : Generated {

@@ -1,8 +1,6 @@
-import { Model, ModuleImport, isModule, isModuleImport } from "../../../models/ast.js";
-import { createPath, base_ident, capitalizeString } from "../../../models/generator-utils.js";
+import { Model, ModuleImport, isModule, isModuleImport, createPath, base_ident, capitalizeString, expandToStringWithNL, CompositeGeneratorNode, Generated, toString } from "../../../models/model.js";
 import path from 'path'
 import fs from 'fs'
-import { Generated, expandToStringWithNL, toString } from "langium/generate";
 
 const ident = base_ident
 

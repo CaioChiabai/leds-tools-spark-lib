@@ -1,8 +1,8 @@
-import path from "path"
-import { Model, isLocalEntity, isModule } from "../../../../models/ast.js"
-import fs from "fs"
-import { generate as generateBaseControllers } from "./BaseControllers/generate.js"
-import { generate as generateEntities } from "./Entities/generate.js"
+import path from "path";
+import { Model, isLocalEntity, isModule } from "../../../../models/model.js";
+import fs from "fs";
+import { generate as generateBaseControllers } from "./BaseControllers/generate.js";
+import { generate as generateEntities } from "./Entities/generate.js";
 
 export function generate(model: Model, target_folder: string) : void {
 

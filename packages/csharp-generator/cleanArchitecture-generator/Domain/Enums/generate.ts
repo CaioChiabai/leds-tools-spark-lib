@@ -1,8 +1,7 @@
-import { expandToString } from "langium/generate";
-import { EnumX, Model, isEnumX, isModule } from "../../../../models/ast.js";
+import { expandToString, EnumX, Model, isEnumX, isModule } from "../../../../models/model.js";
 import path from "path";
 import fs from "fs";
-import { capitalizeString } from "../../../../models/generator-utils.js";
+import { capitalizeString } from "../../../../models/model.js";
 
 export function generate(model: Model, target_folder: string) {
     const modules =  model.abstractElements.filter(isModule);
