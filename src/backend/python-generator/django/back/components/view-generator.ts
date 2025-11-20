@@ -21,7 +21,7 @@ function createEntityViewSet(e: LocalEntity, has_actor: boolean) : string {
     const permission_class = has_actor ?
         'permission_classes = [Or(IsAdminUser, And(AdministratorPermissions, TokenHasReadWriteScope))]' :
         'permission_classes = [Or(IsAdminUser, TokenHasReadWriteScope)]'
-
+    //comentário
     const lines = [
         `class ${e.name}ViewSet(ModelViewSet):`,
         `${ident}"""`,
