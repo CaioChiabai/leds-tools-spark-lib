@@ -4,7 +4,3 @@ export {generateModules as generateModuleGenerator} from './module-generator.js'
 export {generateSerializer as generateSerializeGenerator} from './serialize-generator.js';
 export {generateURLAPI as generateUrlGenerator} from './url-generator.js';
 export {generateAPIView as generateViewGenerator} from './view-generator.js';
-export {generateAppsComments as generateAppsGenerator} from './app-generator.js';
-export {generatePaginationComments} from './pagination-generator.js';
-export {generateSignals} from './signals-generator.js';
-export {generateUtil} from './utils-generator.js';
