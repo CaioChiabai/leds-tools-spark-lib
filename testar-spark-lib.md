@@ -29,12 +29,16 @@ npm link
 cd ../leds-tools-spark
 ```
 
+### Instale as dependências do projeto principal:
+```bash
+npm install
+```
+
 ### Crie o link entre o Spark e a lib local (use o nome que aparece no campo "name" do package.json da lib):
 ```bash
 npm link leds-spark-lib
 
 npm ls leds-spark-lib
-
 ```
 
 
@@ -42,7 +46,6 @@ npm ls leds-spark-lib
 
 ### No diretório do Spark, execute:
 ```bash
-npm install
 npm run langium:generate
 npm run build
 ```
