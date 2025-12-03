@@ -1,0 +1,21 @@
+Configuration {
+    software_name: "CadastroPessoa"
+    about: "Sistema simples para cadastrar pessoas"
+    language: python
+    database_name: "banco"
+}
+
+module Modulo_pessoa {
+
+    entity Pessoa {
+        nome: string
+        cpfstring: string
+        sexo uses Sexo
+    }
+
+    enum Sexo {
+        Feminino
+        Masculino
+        Outro
+    }
+}
