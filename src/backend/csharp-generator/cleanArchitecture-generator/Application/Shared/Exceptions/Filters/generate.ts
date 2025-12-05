@@ -1,6 +1,7 @@
 import { expandToStringWithNL, Model } from "../../../../../../models/model.js"
 import fs from "fs"
 import path from "path"
+import {getEntityName} from "../../../../../../../util/generator-utils.js";
 
 export function generate(model: Model, target_folder: string) : void {
     
@@ -8,10 +9,6 @@ export function generate(model: Model, target_folder: string) : void {
     fs.writeFileSync(path.join(target_folder,`ExceptionFilter.cs`), DatabaseExceptionFilter(model))
 }
 
-function getEntityName(model: Model): string {
-    const name = model.configuration?.name || "";
-    return name.startsWith("Cadastro") ? name.replace("Cadastro", "") : name;
-}
 function generateBadExceptionFilter (model: Model): string {
     return expandToStringWithNL`
 using FluentValidation;
