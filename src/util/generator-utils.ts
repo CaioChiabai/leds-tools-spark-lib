@@ -32,5 +32,10 @@ export function createPath(...args: string[]) : string {
 
 export function getEntityName(model: { name?: string; configuration?: { name?: string } }): string {
     const name = model.configuration?.name || model.name || "";
-    return name.startsWith("Modulo_") ? name.replace("Modulo_", "") : name;
+    if (name.startsWith("Modulo_")) {
+        return name.replace("Modulo_", "");
+    } else if (name.startsWith("Cadastro")) {
+        return name.replace("Cadastro", "");
+    }
+    return name;
 }
