@@ -2,14 +2,12 @@ import { expandToString } from "../../../../../../models/model.js";
 import { Model } from "../../../../../../models/model.js";
 import fs from "fs";
 import path from "path";
+import {getEntityName} from "../../../../../../../util/generator-utils.js";
 
 export function generate(model: Model, target_folder: string): void {
     fs.writeFileSync(path.join(target_folder, "Response.cs"), generateResponse(model));
 }
-function getEntityName(model: Model): string {
-    const name = model.configuration?.name || "";
-    return name.startsWith("Cadastro") ? name.replace("Cadastro", "") : name;
-}
+
 
 function generateResponse(model: Model): string {
     return expandToString`
