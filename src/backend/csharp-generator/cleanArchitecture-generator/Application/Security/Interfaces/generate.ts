@@ -1,7 +1,7 @@
 import { expandToStringWithNL, Model } from "../../../../../models/model.js"
 import fs from "fs";
 import path from "path";
-import {getEntityName} from "../../../../../../../../util/generator-utils.js";
+import {getEntityName} from "../../../../../../util/generator-utils.js";
 export function generate(model: Model, target_folder: string) : void {
     fs.writeFileSync(path.join(target_folder, "IService.cs"),genrateIservice(model))
 }
