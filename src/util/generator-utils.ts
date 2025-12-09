@@ -1,5 +1,6 @@
 import path from "path";
 import fs from 'fs'
+import { Model } from "src/backend/models/index.js";
 
 /**
  * Capitaliza uma string
@@ -27,4 +28,14 @@ export function createPath(...args: string[]) : string {
     fs.mkdirSync(PATH, { recursive: true })
   }
   return PATH
+}
+
+export function getEntityName(model: { name?: string; configuration?: { name?: string } }): string {
+    const name = model.configuration?.name || model.name || "";
+    if (name.startsWith("Modulo_")) {
+        return name.replace("Modulo_", "");
+    } else if (name.startsWith("Cadastro")) {
+        return name.replace("Cadastro", "");
+    }
+    return name;
 }
